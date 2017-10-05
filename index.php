@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" href="./index.css">
     <title>Little PHP Game</title>
   </head>
@@ -26,14 +27,6 @@
           array(2,4,6)
         );
 
-        // for($i = 0; $i < 9; $i++) {
-        //   $testArray = $lines[$i];
-        //   if($board[$testArray[0]] && $board[$testArray[0]] == $board[$testArray[1]] && $board[$testArray[0]] == $board[$testArray[2]]) {
-        //     $winner = $board[$testArray[0]];
-        //     print $board[$testArray[0]] . "'s win!";
-        //   }
-        // }
-
         $empty = 0;
         for ($i = 0; $i < 9; $i++) {
           if ($board[$i] == '') $empty = 1;
@@ -52,19 +45,10 @@
               $winner = $board[$testArray[0]];
             }
           }
+        } elseif ($winner == 'n') {
+          $winner = 'd';
+          print 'The game is a draw!';
         }
-
-        // if($winner == 'n') {
-        //   for($i = 0; $i < 9; $i++) {
-        //     $testArray = $lines[$i];
-        //     if($board[$testArray[0]] && $board[$testArray[0]] == $board[$testArray[1]] && $board[$testArray[0]] == $board[$testArray[2]]) {
-        //       print $board[$testArray[0]] . "'s win!";
-        //       $winner = $board[$testArray[0]];
-        //     }
-        //   }
-        // }
-
-
       }
     ?>
     <form method="POST" action="index.php">

@@ -1,13 +1,41 @@
+body {
+  background-color: #dff9bb;
+  text-align: center;
+  font-size: 30px;
+}
+
 form {
-  width: 600px;
-  margin: 0;
+  width: 500px;
+  margin: 50px auto;
 }
 
 form input {
+  font-size: 40px;
+  font-family: 'Indie Flower', cursive;
+  border-radius: 10px;
+  border: 1px black dashed;
   width: 32%;
+  height: 70px;
+  text-align: center;
+}
+form input:focus {
+  outline: none;
 }
 
-form button {
+form input[type=submit] {
   display: block;
   margin: 10px auto;
+  color: #fff;
+  border: none;
+  background-color: #d2e8f5;
+  font-size: 30px;
+}
+
+form input[type=button] {
+  display: block;
+  margin: 10px auto;
+  color: #fff;
+  border: none;
+  background-color: #d2e8f5;
+  font-size: 30px;
 }
