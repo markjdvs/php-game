@@ -8,6 +8,7 @@
   <body>
     <?php
       $board = array();
+      $winner = 'n';
       for ($i = 0; $i < 9; $i++) array_push($board, '');
       if(isset($_POST["submit"])) {
         for ($i = 0; $i < 9; $i++) {
@@ -25,31 +26,44 @@
           array(2,4,6)
         );
 
-        function calculateWinner() {
-          for($i = 0; $i < 9; $i++) {
-            $testArray = $lines[$i];
-            if($board[$testArray[0]] && $board[$testArray[0]] == $board[$testArray[1]] && $board[$testArray[0]] == $board[$testArray[2]]) {
-              print $board[$testArray[0]] . "'s win!";
-            }
-          }
-        }
-
-        calculateWinner();
+        // for($i = 0; $i < 9; $i++) {
+        //   $testArray = $lines[$i];
+        //   if($board[$testArray[0]] && $board[$testArray[0]] == $board[$testArray[1]] && $board[$testArray[0]] == $board[$testArray[2]]) {
+        //     $winner = $board[$testArray[0]];
+        //     print $board[$testArray[0]] . "'s win!";
+        //   }
+        // }
 
         $empty = 0;
         for ($i = 0; $i < 9; $i++) {
           if ($board[$i] == '') $empty = 1;
         }
 
-        if ($empty == 1) {
+        if ($empty == 1 && $winner == 'n') {
           $i = rand(0,8);
           while($board[$i] != '') {
             $i = rand(0,8);
           }
           $board[$i] = 'o';
+          for($i = 0; $i < 9; $i++) {
+            $testArray = $lines[$i];
+            if($board[$testArray[0]] && $board[$testArray[0]] == $board[$testArray[1]] && $board[$testArray[0]] == $board[$testArray[2]]) {
+              print $board[$testArray[0]] . "'s win!";
+              $winner = $board[$testArray[0]];
+            }
+          }
         }
 
-        calculateWinner();
+        // if($winner == 'n') {
+        //   for($i = 0; $i < 9; $i++) {
+        //     $testArray = $lines[$i];
+        //     if($board[$testArray[0]] && $board[$testArray[0]] == $board[$testArray[1]] && $board[$testArray[0]] == $board[$testArray[2]]) {
+        //       print $board[$testArray[0]] . "'s win!";
+        //       $winner = $board[$testArray[0]];
+        //     }
+        //   }
+        // }
+
 
       }
     ?>
@@ -58,7 +72,11 @@
           for($i = 0; $i < 9; $i++) {
             print "<input name=$i type=text value=$board[$i]>";
           }
-          print "<input type=submit name=submit value=submit>";
+          if ($winner == 'n') {
+            print '<input type="submit" name="submit" value="Submit">';
+          } else {
+            print '<input type="button" name="reset" value="Play again?" onclick="window.location.href=\'index.php\'">';
+          }
         ?>
     </form>
 
