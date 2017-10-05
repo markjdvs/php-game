@@ -2,18 +2,25 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="./index.css">
+    <title>Little PHP Game</title>
   </head>
   <body>
     <?php
-      $dice = array(
-              1 => 1/6,
-              2 => 1/6,
-              3 => 1/6,
-              4 => 1/6,
-              5 => 1/6,
-              6 => 1/6);
-      echo $dice[1];
+      $board = array();
+      for ($i = 0; $i < 9; $i++) array_push($board, '');
+      if(isset($_POST["submit"])) {
+
+      }
     ?>
+    <form method="POST" action="index.php">
+        <?php
+        for($i = 0; $i < 9; $i++) {
+          print "<input name=$i type=text value>";
+        }
+        print "<input type=submit name=submit value=submit>";
+        ?>
+    </form>
+
   </body>
 </html>

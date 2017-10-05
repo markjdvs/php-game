@@ -1,0 +1,13 @@
+form {
+  width: 600px;
+  margin: 0;
+}
+
+form input {
+  width: 32%;
+}
+
+form button {
+  display: block;
+  margin: 10px auto;
+}
